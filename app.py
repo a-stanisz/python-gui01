@@ -1,5 +1,7 @@
-import tkinter as tk
-from tkinter import filedialog, Text
+# import tkinter as tk
+# from tkinter import filedialog, Text
+import tk
+from tk import filedialog, Text
 import os
 
 root = tk.Tk()
