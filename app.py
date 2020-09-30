@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog, Text
 import os
-import subprocess
 import sys
+import subprocess
 
 root = tk.Tk()
 apps = []
@@ -22,13 +22,16 @@ def addApp():
         label.pack()
 
 
-opener = "open" if sys.platform == "darwin" else "xdg-open"
-
+# opener = "open" if sys.platform == "darwin" else "xdg-open"
 
 def runApps():
     for app in apps:
         # os.startfile(app)
-        subprocess.call([opener, app])
+        if sys.platform == "win32":
+            os.startfile(app)
+        else:
+            opener = "open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, app])
 
 
 canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
